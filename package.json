@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@mui/material": "^5.15.0",
-    "@react-three/drei": "^8.0.0",
-    "@react-three/fiber": "9.121.5,
+    "@react-three/drei": "^9.121.5",
+    "@react-three/fiber": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
