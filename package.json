@@ -1,0 +1,26 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@mui/material": "^5.15.0",
+    "@react-three/drei": "^9.60.0",
+    "@react-three/fiber": "^9.40.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "three": "^0.156.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://maanavkrishna.github.io/Portfolio/",
+  "devDependencies": {
+    "gh-pages": "^5.0.0",
+    "react-scripts": "5.0.1"
+  }
+}
