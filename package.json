@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://maanavkrishna.github.io/PortfolioV2",
   "dependencies": {
+    "framer-motion": "^10.16.1",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.3",
     "@mui/material": "^5.15.0",
