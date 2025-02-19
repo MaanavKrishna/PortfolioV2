@@ -71,7 +71,7 @@ const Portfolio = () => (
     <BackgroundEffect />
     <Container>
       <Box textAlign="center" mb={6}>
-        <Avatar src="/profile.jpg" sx={{ width: 120, height: 120, margin: "0 auto" }} />
+        <Avatar src="/profile.png" sx={{ width: 120, height: 120, margin: "0 auto" }} />
         <Typography variant="h2" component="h1" gutterBottom>
           Maanav Krishna
         </Typography>
