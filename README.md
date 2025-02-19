@@ -1,5 +1,3 @@
-Here’s the improved README.md without the folder structure section:
-
 # 🚀 PortfolioV2
 
 An interactive and modern portfolio website built with **React, Three.js, MUI, and Framer Motion**, designed to showcase projects, certifications, and skills.
