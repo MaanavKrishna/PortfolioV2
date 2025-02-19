@@ -51,7 +51,7 @@ Start the development server:
 
 📤 Deployment
 
-Build and deploy using GitHub Pages:
+## Build and deploy using GitHub Pages:
 Build:
 
     npm run build
