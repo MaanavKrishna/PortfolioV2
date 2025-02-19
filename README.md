@@ -35,7 +35,7 @@ Clone the repository:
 
 Move to the directory:
       
-      cd PortfolioV2
+    cd PortfolioV2
 
 Install dependencies:
 
