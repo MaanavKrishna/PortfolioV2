@@ -1,0 +1,174 @@
+import React, { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  CardActions,
+  Typography,
+  Button,
+  Container,
+  Grid,
+  Box,
+  Avatar,
+} from "@mui/material";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Stars } from "@react-three/drei";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+
+const projects = [
+  {
+    name: "Diagnostic Center Management System",
+    description: "A complete management system for diagnostic centers.",
+    link: "https://github.com/MaanavKrishna/Diagnostic-Center-Management-System",
+  },
+  {
+    name: "Portfolio Website",
+    description: "Personal portfolio showcasing skills and projects.",
+    link: "https://maanavkrishna.github.io/Portfolio/",
+  },
+  {
+    name: "E-Commerce App",
+    description: "A full-stack e-commerce application with authentication and payment integration.",
+    link: "https://github.com/MaanavKrishna/E-Commerce-App",
+  }
+];
+
+const certifications = [
+  {
+    name: "Programming for Everybody (Python Basics)",
+    issuer: "University of Michigan",
+    link: "https://coursera.org/verify/ABC123",
+  },
+  {
+    name: "Python Data Structures",
+    issuer: "University of Michigan",
+    link: "https://coursera.org/verify/DEF456",
+  },
+  {
+    name: "Fundamentals of UI/UX Design",
+    issuer: "Microsoft",
+    link: "https://microsoft.com/verify/UIUX789",
+  },
+  {
+    name: "Introduction to Artificial Intelligence (AI)",
+    issuer: "IBM",
+    link: "https://ibm.com/verify/AI101",
+  },
+];
+
+// 🔵 Custom Cursor Component
+const Cursor = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  return (
+    <motion.div
+      className="cursor"
+      animate={{ x: position.x - 10, y: position.y - 10 }}
+      transition={{ ease: "linear", duration: 0.1 }}
+    />
+  );
+};
+
+const BackgroundEffect = () => (
+  <Canvas style={{ position: "absolute", top: 0, left: 0, zIndex: -1 }}>
+    <OrbitControls enableZoom={false} />
+    <ambientLight intensity={0.5} />
+    <directionalLight position={[2, 2, 2]} />
+    <Stars />
+  </Canvas>
+);
+
+const Portfolio = () => (
+  <Box sx={{ minHeight: "100vh", overflowX: "hidden", backgroundColor: "#121212", color: "white", py: 6, position: "relative" }}>
+    <Cursor /> {/* 🔵 Add custom cursor */}
+    <BackgroundEffect />
+    
+    <AnimatePresence>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
+        <Container>
+          {/* 🖼️ Profile Section */}
+          <Box textAlign="center" mb={6}>
+            <motion.div whileHover={{ scale: 1.1 }}>
+              <Avatar src="https://maanavkrishna.github.io/PortfolioV2/profile.png" sx={{ width: 120, height: 120, margin: "0 auto", boxShadow: "0 4px 10px rgba(255, 255, 255, 0.3)" }} />
+            </motion.div>
+            <Typography variant="h2" component="h1" gutterBottom className="gradient-text">
+              Maanav Krishna
+            </Typography>
+            <Typography variant="h5" color="gray">
+              Software Developer | Python | SQL | JavaScript | React | HTML | Embedded C
+            </Typography>
+            <Box mt={2} display="flex" justifyContent="center" gap={3}>
+              <motion.a href="https://github.com/MaanavKrishna" target="_blank" whileHover={{ scale: 1.2 }}>
+                <FaGithub className="text-4xl hover:text-gray-400" />
+              </motion.a>
+              <motion.a href="https://linkedin.com/in/maanavkrishna" target="_blank" whileHover={{ scale: 1.2 }}>
+                <FaLinkedin className="text-4xl hover:text-gray-400" />
+              </motion.a>
+              <motion.a href="mailto:maanav@example.com" whileHover={{ scale: 1.2 }}>
+                <FaEnvelope className="text-4xl hover:text-gray-400" />
+              </motion.a>
+            </Box>
+          </Box>
+
+          {/* 📌 Projects Section */}
+          <Typography variant="h4" align="center" gutterBottom>
+            Projects
+          </Typography>
+          <Grid container spacing={4} justifyContent="center" mt={4}>
+            {projects.map((project, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <motion.div whileHover={{ scale: 1.05 }}>
+                  <Card sx={{ backgroundColor: "rgba(30, 30, 30, 0.8)", backdropFilter: "blur(10px)", color: "white", borderRadius: 3, p: 2, boxShadow: "0px 4px 10px rgba(255, 255, 255, 0.2)" }}>
+                    <CardContent>
+                      <Typography variant="h6">{project.name}</Typography>
+                      <Typography variant="body2" color="gray">{project.description}</Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button variant="outlined" href={project.link} target="_blank" sx={{ color: "white", borderColor: "gray" }}>
+                        View Project
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+
+          {/* 🎖️ Certifications Section */}
+          <Typography variant="h4" align="center" gutterBottom mt={6}>
+            Certifications
+          </Typography>
+          <Grid container spacing={4} justifyContent="center" mt={4}>
+            {certifications.map((cert, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <motion.div whileHover={{ scale: 1.05 }}>
+                  <Card sx={{ backgroundColor: "rgba(30, 30, 30, 0.8)", backdropFilter: "blur(10px)", color: "white", borderRadius: 3, p: 2, boxShadow: "0px 4px 10px rgba(255, 255, 255, 0.2)" }}>
+                    <CardContent>
+                      <Typography variant="h6">{cert.name}</Typography>
+                      <Typography variant="body2" color="gray">{cert.issuer}</Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button variant="outlined" href={cert.link} target="_blank" sx={{ color: "white", borderColor: "gray" }}>
+                        View Certificate
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </motion.div>
+    </AnimatePresence>
+  </Box>
+);
+
+export default Portfolio;
